@@ -54,13 +54,89 @@ public class LinkedList<T> implements List<T>{
             current = current.next;
         }
     }
+    
+    public void reverse() {
+    	Node<T> prev = null;
+    	Node<T> tmp = head;
+    	current = head;
+    	
+    	while(current.next != null) {
+    		current = current.next;
+    		tmp.next = prev;
+    		prev = current;
+    		
+    		
+    	}
+    	
+    	
+    	
+    }
+    
+public void All() {
+    	
+    	Node<T> tmp = head;
+    	while(tmp != null) {
+    		System.out.print(tmp.data + " -> ");
+    		tmp = tmp.next;
+    	}
+    	
+    }
+    
     public T mostFrequentElement() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    	T most = head.data;
+      Node<T> runner1 = head;
+      Node<T> runner2 = head;
+     
+    
+      int mostCount = 0;
+        while(runner1 != null) {
+        	
+        	  int counter = 0;
+        	runner2 = head;
+        	 while(runner2 != null) {
+        		if(runner2.data.equals(runner1.data)) {
+        			counter++;
+        		}
+        		 runner2 = runner2.next;
+        	 }
+        	 if(counter > mostCount ) {
+        		 mostCount = counter;
+        		 most = runner1.data;
+        	 }else
+        		
+        	 
+        		runner1 = runner1.next;
+        	 }
+        String c = "AGS";
+        c.toLowerCase();
+        
         //         Write the method mostFrequentElement, member of the class LinkedList, that returns
         // the most frequent element in the list. The most frequent element is the element
         // appearing the highest number of times. If one or more element appear the same
         // number of times, the one encountered earlier is returned.
         // Example 1.1. Given the list l : A, B, C, B, C, D, E, mostFrequentElement() returns
         // B.
+        return most;
     }
+    
+    public void insertList(LinkedList<T> Q, int n) {
+    	
+    	Node<T> c1 = this.head;
+    	Node<T> c2 = Q.head;
+    	
+    	for(int i = 1; i< n; i++) {
+    		c1 = c1.next;
+    	}
+    	this.current = c1;
+    	while(c2 != null) {
+    		this.insert(c2.data);
+    		c2 = c2.next;
+    	}
+    	
+    	
+    	
+    }
+    
+    
+    
 }
