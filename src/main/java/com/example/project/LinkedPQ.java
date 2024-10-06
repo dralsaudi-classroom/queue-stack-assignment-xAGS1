@@ -40,4 +40,29 @@ public class LinkedPQ<T> {
         size--;
         return pqe;
     }
+    
+  public void mergePQ(LinkedPQ<T> q) {
+	  PQNode<T> tmp = q.head;
+	  
+	  while(tmp != null) {
+		 
+		enqueue(tmp.data, tmp.priority);
+		  tmp = tmp.next;
+	  }
+	  
+  }
+    
+  public void All() {
+  	
+	  PQNode<T> tmp = head;
+  	while(tmp != null) {
+  		System.out.print(tmp.data + " -> ");
+  		tmp = tmp.next;
+  	}
+  	
+  }
+  
+    
+    
+    
 }

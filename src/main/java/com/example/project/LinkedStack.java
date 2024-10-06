@@ -6,6 +6,8 @@ public class LinkedStack<T> implements Stack<T> {
     /* Creates a new instance of LinkStack */
     public LinkedStack() {
         top = null;
+        
+       
     }
     public boolean empty() {
         return top == null;
