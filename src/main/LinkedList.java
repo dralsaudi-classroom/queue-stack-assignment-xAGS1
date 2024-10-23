@@ -1,5 +1,7 @@
 package com.example.project;
 
+import com.example.project.Node;
+
 public class LinkedList<T> implements List<T>{
 	private Node<T> head;
 	private Node<T> current;
@@ -55,12 +57,39 @@ public class LinkedList<T> implements List<T>{
         }
     }
     public T mostFrequentElement() {
-        throw new UnsupportedOperationException("Not supported yet.");
-        //         Write the method mostFrequentElement, member of the class LinkedList, that returns
-        // the most frequent element in the list. The most frequent element is the element
-        // appearing the highest number of times. If one or more element appear the same
-        // number of times, the one encountered earlier is returned.
-        // Example 1.1. Given the list l : A, B, C, B, C, D, E, mostFrequentElement() returns
-        // B.
+    	T most = head.data;
+        Node<T> runner1 = head;
+        Node<T> runner2 = head;
+       
+      
+        int mostCount = 0;
+          while(runner1 != null) {
+          	
+          	  int counter = 0;
+          	runner2 = head;
+          	 while(runner2 != null) {
+          		if(runner2.data.equals(runner1.data)) {
+          			counter++;
+          		}
+          		 runner2 = runner2.next;
+          	 }
+          	 if(counter > mostCount ) {
+          		 mostCount = counter;
+          		 most = runner1.data;
+          	 }else
+          		
+          	 
+          		runner1 = runner1.next;
+          	 }
+          String c = "AGS";
+          c.toLowerCase();
+          
+          //         Write the method mostFrequentElement, member of the class LinkedList, that returns
+          // the most frequent element in the list. The most frequent element is the element
+          // appearing the highest number of times. If one or more element appear the same
+          // number of times, the one encountered earlier is returned.
+          // Example 1.1. Given the list l : A, B, C, B, C, D, E, mostFrequentElement() returns
+          // B.
+          return most;
     }
 }

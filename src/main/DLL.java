@@ -1,5 +1,7 @@
 package com.example.project;
 
+import com.example.project.DLLNode;
+
 public class DLL<T> {
 	private DLLNode<T> head;
 	private DLLNode<T> current;
@@ -65,7 +67,31 @@ public class DLL<T> {
             current = current.next;
     }
     public void removeBetween(T e1, T e2) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    	  DLLNode<T> runner = head;
+          DLLNode<T> node1 = null;
+          DLLNode<T> node2 = null;
+          
+          boolean exsist1 = false;
+          boolean exsist2 = false;
+          
+          while (runner!=null) {
+              if (runner.data.equals(e1)) {
+                  node1 = runner;
+                  exsist1 = true;
+              }
+              else if (runner.data.equals(e2)) {
+            	  node2 = runner;
+            	  exsist2 = true;
+                  break;
+              }
+              runner = runner.next;
+          }
+          if (exsist1 && exsist2) {
+              node1.next = node2;
+              node2.previous = node1;
+              current = head; 
+          }
+       // throw new UnsupportedOperationException("Not supported yet.");
         // throw new UnsupportedOperationException("Not supported yet.");
         // Write the method removeBetween, member of the class DoubleLinkedList. The method
         // takes two elements e1 and e2, and removes all the elements between the two elements
